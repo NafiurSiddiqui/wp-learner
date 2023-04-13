@@ -3,3 +3,7 @@ Theme name: Fictional University
 Author: Brad
 Version: 1.0
 */
+
+body {
+	background: cyan;
+}

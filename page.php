@@ -1,11 +1,11 @@
 <?php
 //THESE ARE JUST WP API
-
 get_header();
 
 while(have_posts()) {
     the_post();
     ?>
+<h1>This is a page!</h1>
 <h2>
     <a href="
 <?php
@@ -19,12 +19,11 @@ while(have_posts()) {
 </h2>
 
 <?php
-    the_content();
+            the_content();
     ?>
 <hr>
 <?php
 }
-
 get_footer();
 
 ?>
