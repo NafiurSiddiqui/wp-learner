@@ -1,3 +1,5 @@
+<!-- What you want to see on each pages -->
+
 <?php
 //THESE ARE JUST WP API
 get_header();

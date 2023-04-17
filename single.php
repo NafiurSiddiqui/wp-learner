@@ -20,3 +20,6 @@ while(have_posts()) {
 }
 get_footer();
 ?>
+
+
+<!-- This file helps you to design what you want to see on one single page -->
