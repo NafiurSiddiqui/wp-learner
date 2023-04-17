@@ -9,7 +9,7 @@ function university_files()
     
     // wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=yourkeygoeshere', null, '1.0', true);
 
-    // wp_enqueue_script('main-university-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('main-university-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
     wp_enqueue_style('our-main-styles-vendor', get_theme_file_uri('/build/index.css'));
     wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
 
@@ -21,3 +21,10 @@ function university_files()
 }
 
 add_action('wp_enqueue_scripts', 'university_files');
+
+function university_features()
+{
+    add_theme_support('title'); //Pulls out the title automatically
+}
+
+add_action('after_setup_theme', 'university_features');
