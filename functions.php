@@ -24,7 +24,15 @@ add_action('wp_enqueue_scripts', 'university_files');
 
 function university_features()
 {
-    add_theme_support('title'); //Pulls out the title automatically
+    //Dynamic navigation setup
+
+    register_nav_menu('headerMenuLocation', 'Header Menu location');
+    register_nav_menu('footerLocationOne', 'Footer location one');
+    register_nav_menu('footerLocationTwo', 'Footer location two');
+    //Pulls out the title automatically
+
+    add_theme_support('title');
+
 }
 
-add_action('after_setup_theme', 'university_features');
+add_action('after_setup_theme', 'university_features'); //This is called after the theme is setup or hooked.
