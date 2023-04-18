@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php
+    language_attributes();
+?>>
 
     <head>
+        <meta
+            charset="<?php bloginfo('charset') ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php
         wp_head(); //Helps you deal with the head section automatically.
-        ?>
+?>
     </head>
 
-    <body>
+    <body <?php
+        body_class();
+?> >
         <header class="site-header">
             <div class="container">
                 <h1 class="school-logo-text float-left">
                     <a href="
                      <?php
-                            echo site_url();
-        // automatically takes you to home page.
-        ?>
+                echo site_url();
+// automatically takes you to home page.
+?>
                     
                     "><strong>Fictional</strong> University</a>
                 </h1>
@@ -27,9 +34,9 @@
                         <ul>
                             <li><a href="
                             <?php
-                                    echo site_url('/about-us');
-        // automatically takes care of the nav for you.
-        ?>
+                            echo site_url('/about-us');
+// automatically takes care of the nav for you.
+?>
                             ">About Us</a></li>
                             <li><a href="#">Programs</a></li>
                             <li><a href="#">Events</a></li>

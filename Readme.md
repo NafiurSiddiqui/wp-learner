@@ -40,3 +40,9 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 # Visit your theme
 
 Go to wp > dashboard > appearance > activate your custom theme.
+
+# APIs
+
+- Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.
+- `get_title` : gets the title of the page.
+- `wp_list_pages`: spits out every pages on your site.
