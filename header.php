@@ -32,12 +32,21 @@
                 <div class="site-header__menu group">
                     <nav class="main-navigation">
                         <ul>
-                            <li><a href="
+                            <li <?php
+                            //check for page slugs OR if the current page is equal to slug-id(e.g: about-us-id)
+                                if (is_page('about-us') || wp_get_post_parent_id(0)== 7) {
+                                    echo 'class="current-menu-item"';
+                                }
+?>
+                                >
+
+                                <a href="
                             <?php
-                            echo site_url('/about-us');
+echo site_url('/about-us');
 // automatically takes care of the nav for you.
 ?>
-                            ">About Us</a></li>
+                            ">About Us</a>
+                            </li>
                             <li><a href="#">Programs</a></li>
                             <li><a href="#">Events</a></li>
                             <li><a href="#">Campuses</a></li>

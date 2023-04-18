@@ -47,7 +47,9 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `get_title` : gets the title of the page.
 - `wp_list_pages`: spits out every pages on your site.
 - `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
+- `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
+- ` wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
 
 # Dynamicity of the theme
 
-If you want a dynamic navigation for your user, which you should if you are wililng to promote your WP theme on WP themes,you need to register the menu. The way you would do it is put inside the [header]('./header.php') file. We can do that with any navigation. whether it is at the top, bottom, side, anywhere.
+If you want a dynamic navigation for your user, which you should if you are wililng to promote your WP theme on WP themes,you need to register the menu. The way you would do it is put inside the `header.php` file inside [dynamicHeader-branch]('https://github.com/NafiurSiddiqui/wp-learner/tree/dynamicHeader'). We can do that with any navigation. whether it is at the top, bottom, side, anywhere.
