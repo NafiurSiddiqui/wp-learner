@@ -1,4 +1,4 @@
-<!-- Default page for blogs -->
+<!-- Default page for archive -->
 <?php
 
 get_header();
@@ -14,10 +14,16 @@ get_header();
     )"></div>
     <div class="page-banner__content container container--narrow">
         <h1 class="page-banner__title">
-            Welcome to our blog
+            <?php
+           the_archive_title();
+?>
         </h1>
         <div class="page-banner__intro">
-            <p>Keep up with our latest news on AI</p>
+            <p>
+                <?php
+                the_archive_description();
+?>
+            </p>
         </div>
     </div>
 </div>
@@ -44,7 +50,7 @@ get_header();
 
         <div class="metabox">
             <p>Posted by <?= the_author_posts_link(); ?> on
-                <?= the_time('n.j.y')  ?>
+                <?php the_time('n.j.y')  ?>
                 in
                 <?= get_the_category_list(', ')  ?>
             </p>

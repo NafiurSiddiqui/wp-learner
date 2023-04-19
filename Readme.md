@@ -23,11 +23,11 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
 - ## Single.php
 
-  A must have file with this name in order to show a single post with new layouts.
+  A must have file with this name in order to show a single post with new layouts. Shows posts.
 
 - ## page.php
 
-  Must have with same WP loops. This tracks pages for your website.
+  Must have with same WP loops. This tracks pages for your website. Shows pages.
 
 - ## header and footer.php
 
@@ -44,12 +44,28 @@ Go to wp > dashboard > appearance > activate your custom theme.
 # APIs
 
 - Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.
-- `get_title` : gets the title of the page.
-- `wp_list_pages`: spits out every pages on your site.
-- `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
-- ` wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
+- `is_category`: Returns true if the query is for an exisiting category archive page.
+- `is_author`: Returns the name of the author.
+- `wp_list_pages`: spits out every pages on your site.
+- `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
+- `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
+- `get_title` : gets the title of the page.
+- `the_permalink`: Fetches the URL for your post.
+- `the_content`: fetches the full body of the post.
+- `the_excerpt`: fetches excerpt of the text.
+- `the_author_posts_link`: fetches the name of the author for the post.
+- `the_time`: fetches the date posted.
+- `get_the_category_list`: fetches the category for the post.
+- `paginate_links`: will paginate your posts. _NOTE_ that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
+- `site_url`: Helps you with navigation around the site.
+- `single_cat_title`: Gives you the title of a single category.
+-
 
 # Dynamicity of the theme
 
 If you want a dynamic navigation for your user, which you should if you are wililng to promote your WP theme on WP themes,you need to register the menu. The way you would do it is put inside the `header.php` file inside [dynamicHeader-branch]('https://github.com/NafiurSiddiqui/wp-learner/tree/dynamicHeader'). We can do that with any navigation. whether it is at the top, bottom, side, anywhere.
+
+# BLOGGING
+
+By default, WP shows you the most recent 10 blog posts.
