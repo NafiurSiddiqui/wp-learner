@@ -47,20 +47,23 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
 - `is_category`: Returns true if the query is for an exisiting category archive page.
 - `is_author`: Returns the name of the author.
-- `wp_list_pages`: spits out every pages on your site.
-- `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
-- `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
 - `get_title` : gets the title of the page.
+- `get_the_category_list`: fetches the category for the post.
+- `get_theme_file_uri`: Retrieves the URL of a file in the theme.
+- `get_header`: gets the custom header.
+- `get_footer`: gets the custom footer.
+- `have_posts`: Determines whether current WP query have posts to loop over. `bool`
+- `site_url`: Helps you with navigation around the site.
+- `single_cat_title`: Gives you the title of a single category.
 - `the_permalink`: Fetches the URL for your post.
 - `the_content`: fetches the full body of the post.
 - `the_excerpt`: fetches excerpt of the text.
 - `the_author_posts_link`: fetches the name of the author for the post.
 - `the_time`: fetches the date posted.
-- `get_the_category_list`: fetches the category for the post.
 - `paginate_links`: will paginate your posts. _NOTE_ that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
-- `site_url`: Helps you with navigation around the site.
-- `single_cat_title`: Gives you the title of a single category.
--
+- `wp_list_pages`: spits out every pages on your site.
+- `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
+- `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
 
 # Dynamicity of the theme
 
