@@ -68,4 +68,8 @@ If you want a dynamic navigation for your user, which you should if you are wili
 
 # BLOGGING
 
-By default, WP shows you the most recent 10 blog posts.
+By default, WP shows you the most recent 10 blog posts. You can change that from your WP admin dashboard.
+
+# CUSTOM QUERY
+
+You make custom query by instantiating `new WP_query([...])`. Look at [front-page]('/front-page.php') for more details.
