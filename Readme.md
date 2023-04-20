@@ -43,7 +43,8 @@ Go to wp > dashboard > appearance > activate your custom theme.
 
 # APIs
 
-- Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.
+- Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.So, do use the `echo` or not accordingly.
+-
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
 - `is_category`: Returns true if the query is for an exisiting category archive page.
 - `is_author`: Returns the name of the author.
@@ -64,6 +65,7 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `wp_list_pages`: spits out every pages on your site.
 - `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
 - `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
+- `wp_reset_postdata`: Always run this after a custom query while loops.
 
 # Dynamicity of the theme
 
