@@ -45,5 +45,22 @@ function university_features()
 }
 
 add_action('after_setup_theme', 'university_features');
-//Crates custom post types
-add_action('init', 'university_post_types');
+
+
+
+// function university_post_types()
+// {
+// //NOTE that this custom post types is moved into mu-plugin folder for enforcement.
+
+//     register_post_type('event', [
+//         'public'=> true,
+//         'labels'=> [
+//             'name'=> 'Events',
+
+//         ],
+//         'menu_icon'=> 'dashicons-calendar'
+//     ]);
+// }
+
+// //Crates custom post types
+// add_action('init', 'university_post_types');

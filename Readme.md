@@ -82,3 +82,11 @@ You make custom query by instantiating `new WP_query([...])`. Look at [front-pag
 # POST TYPE
 
 Every WP post is basically two type. Either a `page` or `post` type.
+
+# WARNINGS ⚠️
+
+_NEVER_ update a theme of a live-website. That can delete the whole existing website.
+
+## mu-plugins
+
+For a custom type posts, must follow the `MUST USE PLUGINS` concept.They live in their own dedicated folder which can not be **deactivated** as long as php files exist inside must use folder. In order to do so, you must create a folder called **mu-plugins** inside your **wp-content** folder. If someone activates a new-theme, mu-plugins will auto activate the necessary updates.
