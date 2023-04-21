@@ -81,7 +81,7 @@ You make custom query by instantiating `new WP_query([...])`. Look at [front-pag
 
 # POST TYPE
 
-Every WP post is basically two type. Either a `page` or `post` type. You can also build your own `custom post` type. But _REMEMBER_ to go to wp-admin dashboard > settings > permalinks and `save changes`. This will let WP know about our custom dashboard.
+Every WP post is basically two type. Either a `page` or `post` type. You can also build your own `custom post` type. But _REMEMBER_ to go to wp-admin dashboard > settings > permalinks and `save changes`. This will let WP know about our custom dashboard and the right link will rendered.
 
 # WARNINGS ⚠️
 
