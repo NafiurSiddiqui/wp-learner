@@ -78,3 +78,7 @@ By default, WP shows you the most recent 10 blog posts. You can change that from
 # CUSTOM QUERY
 
 You make custom query by instantiating `new WP_query([...])`. Look at [front-page]('/front-page.php') for more details.
+
+# POST TYPE
+
+Every WP post is basically two type. Either a `page` or `post` type.
