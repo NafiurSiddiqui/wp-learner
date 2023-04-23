@@ -81,6 +81,10 @@ By default, WP shows you the most recent 10 blog posts. You can change that from
 
 You make custom query by instantiating `new WP_query([...])`. Look at [front-page]('/front-page.php') for more details.
 
+# CUSTOM FIELDS
+
+For custom fields, you can register a new custom field. But recommended approach is to use a plugin like _advanced custom fields_ or _CMB2 (Custom Metaboxes 2)_
+
 # POST TYPE
 
 Every WP post is basically two type. Either a `page` or `post` type. You can also build your own `custom post` type. But _REMEMBER_ to go to wp-admin dashboard > settings > permalinks and `save changes`. This will let WP know about our custom dashboard and the right link will rendered.

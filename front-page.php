@@ -35,10 +35,24 @@ get_header();
             </h2>
 
             <?php
-            $homepageEvents = new WP_Query([
-                'posts_per_page'=> 2,
-                'post_type' => 'event'
-            ]);
+            $today = date('Ymd');
+$homepageEvents = new WP_Query([
+    'posts_per_page'=> -1,//to get all the posts
+    'post_type' => 'event',
+    'meta_key'=>'event_date',
+    'orderby'=> 'meta_value_num',
+    'order'=> 'ASC',
+    //conditional rendering
+    'meta_query'=>[
+        [
+        'key' => 'event_date',
+        'compare'=> '>=',
+        'value'=> $today,
+        'type'=>'numeric'
+                    
+        ]
+    ]
+]);
 
 while($homepageEvents->have_posts()) {
     $homepageEvents->the_post();
@@ -47,14 +61,27 @@ while($homepageEvents->have_posts()) {
                 <a class="event-summary__date t-center" href="
                
                 ">
-                    <span class="event-summary__month">Mar</span>
-                    <span class="event-summary__day">25</span>
+                    <span class="event-summary__month">
+                        <?php
+                        /**
+                         * @get_field - ACF - plugin function
+                         */
+                        $eventDate = new DateTime(get_field('event_date'));
+    echo $eventDate->format('M');
+    ?>
+                    </span>
+                    <span class="event-summary__day">
+                        <?php
+                       
+echo $eventDate->format('d');
+    ?>
+                    </span>
                 </a>
                 <div class="event-summary__content">
                     <h5 class="event-summary__title headline headline--tiny">
                         <a href="
                         <?php
-                        the_permalink();
+        the_permalink();
     ?>
                         ">
                             <?php
