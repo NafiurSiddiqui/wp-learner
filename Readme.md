@@ -77,6 +77,13 @@ If you want a dynamic navigation for your user, which you should if you are wili
 
 By default, WP shows you the most recent 10 blog posts. You can change that from your WP admin dashboard.
 
+# EXCERPT
+
+Typically on blog posts an excerpt of your actual blog context is shown. You can change that by going to wp `dashboard > posts > the post` and look for excerpt under the document from the right side menu.Type whatever you want write and save it.
+after that you need to conditionally render the posts card.
+
+For instance, if one of the post has handcrafted post and others do not have, some 55 or 58 words will be shown. In that case, you will have to conditionally render the cards. check out [front-page.php]('/front-page.php') inside _event-summary_ css class.
+
 # CUSTOM QUERY
 
 You make custom query by instantiating `new WP_query([...])`. Look at [front-page]('/front-page.php') for more details.
