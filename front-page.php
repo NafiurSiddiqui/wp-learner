@@ -64,7 +64,12 @@ while($homepageEvents->have_posts()) {
                     </h5>
                     <p>
                         <?php
-                       echo wp_trim_words(get_the_content(), 10);
+                       if (has_excerpt()) {
+                           echo get_the_excerpt();
+                       } else {
+                           echo wp_trim_words(get_the_content(), 10);
+                       };
+    ;
     ?>
                         <a href="
                           <?php
@@ -81,7 +86,11 @@ while($homepageEvents->have_posts()) {
 
 
             <p class="t-center no-margin">
-                <a href="#" class="btn btn--blue">View All Events</a>
+                <a href="
+                <?php
+                echo get_post_type_archive_link('event');
+?>
+                " class="btn btn--blue">View All Events</a>
             </p>
         </div>
     </div>
