@@ -77,13 +77,6 @@ If you want a dynamic navigation for your user, which you should if you are wili
 
 By default, WP shows you the most recent 10 blog posts. You can change that from your WP admin dashboard.
 
-# EXCERPT
-
-Typically on blog posts an excerpt of your actual blog context is shown. You can change that by going to wp `dashboard > posts > the post` and look for excerpt under the document from the right side menu.Type whatever you want write and save it.
-after that you need to conditionally render the posts card.
-
-For instance, if one of the post has handcrafted post and others do not have, some 55 or 58 words will be shown. In that case, you will have to conditionally render the cards. check out [front-page.php]('/front-page.php') inside _event-summary_ css class.
-
 # CUSTOM QUERY
 
 You make custom query by instantiating `new WP_query([...])`. Look at [front-page]('/front-page.php') for more details.
@@ -99,3 +92,12 @@ _NEVER_ update a theme of a live-website. That can delete the whole existing web
 ## mu-plugins
 
 For a custom type posts, must follow the `MUST USE PLUGINS` concept.They live in their own dedicated folder which can not be **deactivated** as long as php files exist inside must use folder. In order to do so, you must create a folder called **mu-plugins** inside your **wp-content** folder. If someone activates a new-theme, mu-plugins will auto activate the necessary updates.
+
+## EXCERPT
+
+Typically on blog posts an excerpt of your actual blog context is shown. You can change that by going to wp `dashboard > posts > the post` and look for excerpt under the document from the right side menu.Type whatever you want write and save it.
+after that you need to conditionally render the posts card.
+
+For instance, if one of the post has handcrafted post and others do not have, some 55 or 58 words will be shown. In that case, you will have to conditionally render the cards. check out [front-page.php]('/front-page.php') inside _event-summary_ css class.
+
+**NOTE**: for custom-post types you will need to manually register the component with the `register_post_type` inside _mu-plugin_ folder with `supports` property. Look up your _mu-folder_ inside your _wp-content_ folder if you have created it.
