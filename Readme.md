@@ -25,6 +25,8 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
   A must have file with this name in order to show a single post with new layouts. Shows posts.
 
+- ## Single-[custom type].php
+  This is required when you have a custom post type other than the two basics post type WP gives you.
 - ## page.php
 
   Must have with same WP loops. This tracks pages for your website. Shows pages.
