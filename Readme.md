@@ -63,7 +63,8 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `the_excerpt`: fetches excerpt of the text.
 - `the_author_posts_link`: fetches the name of the author for the post.
 - `the_time`: fetches the date posted.
-- `paginate_links`: will paginate your posts. _NOTE_ that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
+- `paginate_links`: will paginate your posts. - **NOTE** that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
+  - **NOTE** This will not work for Custom query.You need to pass in arguments in order for this to work. see at the bottom. `page-past-events.php` file.
 - `wp_list_pages`: spits out every pages on your site.
 - `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
 - `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.

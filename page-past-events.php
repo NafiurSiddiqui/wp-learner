@@ -103,7 +103,9 @@ echo $eventDate->format('d');
 }
 
 //  pagination
-echo paginate_links();
+echo paginate_links([
+    'total'=> $pastEvents->max_num_pages
+]);
 
 ?>
 
