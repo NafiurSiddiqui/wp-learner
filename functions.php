@@ -46,17 +46,19 @@ function university_features()
 
 add_action('after_setup_theme', 'university_features');
 
-//URL manipulation
+//URL manipulation for default WP query
 
 function university_adjust_queries($query)
 {
     //We manipulate the query based on the these conditions
     /**
+     *
      * @query - default obj we get on function
      * @is_admin - we don't want to mess with admin dashboard
      * is_post_type_arcive - we don't want manipulate anything other than our custom event page
      * is_main_query - we only do this for default WP query but not on anything else.
      */
+
     if(!is_admin() && is_post_type_archive('event') && $query->is_main_query()) {
 
         $today = date('Ymd');
@@ -75,6 +77,12 @@ function university_adjust_queries($query)
                     
           ]
     ]);
+
+        if(!is_admin() && is_post_type_archive('program') && $query->is_main_query()) {
+            $query->set('orderby', 'title');
+            $query->set('order', 'ASC');
+            $query->set('posts_per_page', -1); //To list all (-1)
+        }
 
     }
 }

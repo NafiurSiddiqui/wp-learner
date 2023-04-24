@@ -20,7 +20,11 @@ get_header();
             Why don&rsquo;t you check out the <strong>major</strong> you&rsquo;re
             interested in?
         </h3>
-        <a href="#" class="btn btn--large btn--blue">Find Your Major</a>
+        <a href="
+        <?php
+        echo get_post_type_archive_link('program')
+?>
+        " class="btn btn--large btn--blue">Find Your Major</a>
     </div>
 </div>
 
@@ -35,7 +39,7 @@ get_header();
             </h2>
 
             <?php
-            $today = date('Ymd');
+    $today = date('Ymd');
 // CUSTOM QUERY : NOTE that this only applies to this page.
 $homepageEvents = new WP_Query([
     'posts_per_page'=> 2,//to get all the posts
@@ -109,6 +113,7 @@ echo $eventDate->format('d');
             </div>
             <?php
 }
+
 ?>
             <p class="t-center no-margin">
                 <a href="
