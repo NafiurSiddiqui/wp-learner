@@ -46,8 +46,46 @@ function university_features()
 
 add_action('after_setup_theme', 'university_features');
 
+//URL manipulation
+
+function university_adjust_queries($query)
+{
+    //We manipulate the query based on the these conditions
+    /**
+     * @query - default obj we get on function
+     * @is_admin - we don't want to mess with admin dashboard
+     * is_post_type_arcive - we don't want manipulate anything other than our custom event page
+     * is_main_query - we only do this for default WP query but not on anything else.
+     */
+    if(!is_admin() && is_post_type_archive('event') && $query->is_main_query()) {
+
+        $today = date('Ymd');
+
+        //Custom event rendering
+        $query->set('meta_key', 'event_date');
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'ASC');
+        //We exclude past posts
+        $query->set('meta_query', [
+          [
+          'key' => 'event_date',
+          'compare'=> '>=',
+          'value'=> $today,
+          'type'=>'numeric'
+                    
+          ]
+    ]);
+
+    }
+}
+
+add_action('pre_get_posts', 'university_adjust_queries');
 
 
+
+
+
+// 👇 This function has been moved to 'mu-plugin' folder inside wp-content folder.
 // function university_post_types()
 // {
 // //NOTE that this custom post types is moved into mu-plugin folder for enforcement.

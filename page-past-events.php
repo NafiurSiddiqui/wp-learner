@@ -14,11 +14,11 @@ get_header();
     )"></div>
     <div class="page-banner__content container container--narrow">
         <h1 class="page-banner__title">
-            All Events
+            Past Events
         </h1>
         <div class="page-banner__intro">
             <p>
-                See the world of prompts.
+                Recap of our prompt hangout!
             </p>
         </div>
     </div>
@@ -27,9 +27,33 @@ get_header();
 
 <div class="container container--narrow page-section">
     <?php
-     while(have_posts()) {
-         the_post();
-         ?>
+
+    //Get post only less than today
+
+    $today = date('Ymd');
+// CUSTOM QUERY : NOTE that this only applies to this page.
+$pastEvents = new WP_Query([
+    'posts_per_page'=> 1,
+    'post_type' => 'event',
+    'meta_key'=>'event_date',
+    'orderby'=> 'meta_value_num',
+    'order'=> 'ASC',
+    //conditional rendering
+    'meta_query'=>[
+        [
+        'key' => 'event_date',
+        'compare'=> '<=',
+        'value'=> $today,
+        'type'=>'numeric'
+                    
+        ]
+    ]
+]);
+
+
+while($pastEvents->have_posts()) {
+    $pastEvents->the_post();
+    ?>
 
     <div class="event-summary">
         <a class="event-summary__date t-center" href="
@@ -37,49 +61,49 @@ get_header();
                 ">
             <span class="event-summary__month">
                 <?php
-                        /**
-                         * @get_field - ACF - plugin function
-                         */
-                        $eventDate = new DateTime(get_field('event_date'));
-         echo $eventDate->format('M');
-         ?>
+                   /**
+                    * @get_field - ACF - plugin function
+                    */
+                   $eventDate = new DateTime(get_field('event_date'));
+    echo $eventDate->format('M');
+    ?>
             </span>
             <span class="event-summary__day">
                 <?php
                        
 echo $eventDate->format('d');
-         ?>
+    ?>
             </span>
         </a>
         <div class="event-summary__content">
             <h5 class="event-summary__title headline headline--tiny">
                 <a href="
                         <?php
-                             the_permalink();
-         ?>
+                        the_permalink();
+    ?>
                         ">
                     <?php
-                     the_title();
-         ?>
+                the_title();
+    ?>
                 </a>
             </h5>
             <p>
                 <?php
-                            echo wp_trim_words(get_the_content(), 10);
-         ?>
+                       echo wp_trim_words(get_the_content(), 10);
+    ?>
                 <a href="
                           <?php
-                             the_permalink();
-         ?>
+                        the_permalink();
+    ?>
                         " class="nu gray">Learn more</a>
             </p>
         </div>
     </div>
     <?php
-     }
+}
 
-    //  pagination
-    echo paginate_links();
+//  pagination
+echo paginate_links();
 
 ?>
 

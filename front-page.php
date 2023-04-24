@@ -36,8 +36,9 @@ get_header();
 
             <?php
             $today = date('Ymd');
+// CUSTOM QUERY : NOTE that this only applies to this page.
 $homepageEvents = new WP_Query([
-    'posts_per_page'=> -1,//to get all the posts
+    'posts_per_page'=> 2,//to get all the posts
     'post_type' => 'event',
     'meta_key'=>'event_date',
     'orderby'=> 'meta_value_num',
@@ -59,7 +60,7 @@ while($homepageEvents->have_posts()) {
     ?>
             <div class="event-summary">
                 <a class="event-summary__date t-center" href="
-               
+               #
                 ">
                     <span class="event-summary__month">
                         <?php
@@ -109,9 +110,6 @@ echo $eventDate->format('d');
             <?php
 }
 ?>
-
-
-
             <p class="t-center no-margin">
                 <a href="
                 <?php
