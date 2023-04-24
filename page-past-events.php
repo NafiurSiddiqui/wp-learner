@@ -33,7 +33,7 @@ get_header();
     $today = date('Ymd');
 // CUSTOM QUERY : NOTE that this only applies to this page.
 $pastEvents = new WP_Query([
-    'posts_per_page'=> 1,
+    'paged'=> get_query_var('paged', 1), //This makes sure you get the proper result and number 1 is fallback in case there is no other pages.
     'post_type' => 'event',
     'meta_key'=>'event_date',
     'orderby'=> 'meta_value_num',
