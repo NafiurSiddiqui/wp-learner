@@ -45,6 +45,9 @@ function university_features()
     //enables the post image on WP dashboard programmatically. so that we do not have to manually upload image associated with that post.
     //NOTE: this alone won't enable the thumbnail option. Look at mu-plugin for more.
     add_theme_support('post-thumbnails');
+    //IMAGE SIZE
+    add_image_size('professorLandscape', 400, 260, true);
+    add_image_size('professorPortrait', 480, 650, true);
 
 }
 

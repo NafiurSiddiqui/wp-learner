@@ -77,21 +77,34 @@ $relatedProfessor = new WP_Query([
     <h2 class="headline headline--medium" >
     '. get_the_title() .' Professor
     </h2>
+
+    <ul class="professor-cards">
     ';
         while($relatedProfessor->have_posts()) {
             $relatedProfessor->the_post();
             ?>
-    <li><a href="
+    <li class="professor-card__list-item">
+        <a class="professor-card" href="
         <?php
             the_permalink()
             ?>
         ">
-            <?php
-    the_title();
+            <img src="
+        <?php
+        the_post_thumbnail_url();
             ?>
-        </a></li>
+        " alt="" class="professor-card__image">
+            <span class="professor-card__name">
+                <?php
+                the_title();
+            ?>
+            </span>
+        </a>
+    </li>
+
     <?php
         }
+        echo '</ul>';
 
     }
 
