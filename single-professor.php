@@ -10,7 +10,10 @@ while(have_posts()) {
 <div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(
         <?php
-        echo get_theme_file_uri('/images/ocean.jpg');
+        // echo get_theme_file_uri('/images/ocean.jpg');
+        $pageBannerImage = get_field('page_banner_background_image');
+    // echo $pageBannerImage['url'];
+    echo $pageBannerImage['sizes']['pageBanner']
     ?>
     )"></div>
     <div class="page-banner__content container container--narrow">
@@ -20,7 +23,12 @@ while(have_posts()) {
     ?>
         </h1>
         <div class="page-banner__intro">
-            <p>Placholder.</p>
+            <p>
+                <?php
+            //ACF FIELDS
+            the_field('page_banner_subtitle');
+    ?>
+            </p>
         </div>
     </div>
 </div>

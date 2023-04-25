@@ -48,6 +48,8 @@ function university_features()
     //IMAGE SIZE
     add_image_size('professorLandscape', 400, 260, true);
     add_image_size('professorPortrait', 480, 650, true);
+    //BACKGROUND IMAGE BANNER
+    add_image_size('pageBanner', 1500, 350, true);
 
 }
 
