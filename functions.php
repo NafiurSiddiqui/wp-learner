@@ -42,6 +42,10 @@ add_action('wp_enqueue_scripts', 'university_files');
 function university_features()
 {
     add_theme_support('title'); //Pulls out the title automatically
+    //enables the post image on WP dashboard programmatically. so that we do not have to manually upload image associated with that post.
+    //NOTE: this alone won't enable the thumbnail option. Look at mu-plugin for more.
+    add_theme_support('post-thumbnails');
+
 }
 
 add_action('after_setup_theme', 'university_features');

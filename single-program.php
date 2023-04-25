@@ -53,7 +53,52 @@ while(have_posts()) {
 
     <!-- Custom Query: To establish relationship -->
     <?php
-            $today = date('Ymd');
+$relatedProfessor = new WP_Query([
+       'posts_per_page'=> -1,
+       'post_type' => 'professor',
+       'orderby'=> 'title',
+       'order'=> 'ASC',
+       //conditional rendering
+       'meta_query'=>[
+        
+           //This only fetches post related to the program
+           [
+               'key' => 'related_programs',
+               'compare'=> 'LIKE',
+               'value'=> '"'.get_the_ID().'"'
+           ]
+       ]
+   ]);
+
+    //Outputting related professor
+    if ($relatedProfessor->have_posts()) {
+        echo '
+    <hr class="section-break">
+    <h2 class="headline headline--medium" >
+    '. get_the_title() .' Professor
+    </h2>
+    ';
+        while($relatedProfessor->have_posts()) {
+            $relatedProfessor->the_post();
+            ?>
+    <li><a href="
+        <?php
+            the_permalink()
+            ?>
+        ">
+            <?php
+    the_title();
+            ?>
+        </a></li>
+    <?php
+        }
+
+    }
+
+    //Without resetting data we won't get the actual data from query methods like get_ID, title, etc. Hence we won't see the EVENT POST below Learn more about this online.
+    wp_reset_postdata();
+
+    $today = date('Ymd');
     // CUSTOM QUERY : NOTE that this only applies to this page.
     $homepageEvents = new WP_Query([
         'posts_per_page'=> 2,//to get all the posts
@@ -78,6 +123,8 @@ while(have_posts()) {
             ]
         ]
     ]);
+
+  
 
     //Outputting related events
 
