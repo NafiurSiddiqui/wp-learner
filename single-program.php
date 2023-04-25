@@ -91,7 +91,7 @@ $relatedProfessor = new WP_Query([
         ">
             <img src="
         <?php
-        the_post_thumbnail_url();
+        the_post_thumbnail_url('professorLandscape');
             ?>
         " alt="" class="professor-card__image">
             <span class="professor-card__name">
