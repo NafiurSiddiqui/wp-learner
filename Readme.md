@@ -110,3 +110,7 @@ after that you need to conditionally render the posts card.
 For instance, if one of the post has handcrafted post and others do not have, some 55 or 58 words will be shown. In that case, you will have to conditionally render the cards. check out [front-page.php]('/front-page.php') inside _event-summary_ css class.
 
 **NOTE**: for custom-post types you will need to manually register the component with the `register_post_type` inside _mu-plugin_ folder with `supports` property. Look up your _mu-folder_ inside your _wp-content_ folder if you have created it.
+
+# AJAX
+
+- The path will be `yoursitename/<where your wp is installed>/wp-json/wp/v2/<query>`. Query could be something like `posts`, `pages`, etc.
