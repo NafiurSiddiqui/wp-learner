@@ -17,7 +17,7 @@ function pageBanner($args = null)
     }
     //Photo guard
     if(empty($args['photo'])) {
-        if(get_field('page_banner_background_image')) {
+        if(get_field('page_banner_background_image') && !is_archive() && !is_home()) {
             $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
         } else {
             //fallback

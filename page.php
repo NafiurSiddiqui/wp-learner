@@ -6,12 +6,7 @@ get_header();
 
 while(have_posts()) {
     the_post();
-    // pageBanner([
-    //     'title'=> '',
-    //     'subtitle'=> '',
-    //     //NEEDS absolute URL
-    //     'photo'=> 'https://images.unsplash.com/photo-1548445929-4f60a497f851?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-    // ]);
+    //our custom component
     pageBanner();
     ?>
 
