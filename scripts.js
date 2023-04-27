@@ -194,7 +194,7 @@
 		getResults() {
 			$.getJSON(
 				universityData.root_url +
-					'/wp-json/university/v2/search?term=' +
+					'/wp-json/wp/v2/posts?search=' +
 					this.searchField.val(),
 				(results) => {
 					this.resultsDiv.html(`
