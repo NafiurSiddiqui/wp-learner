@@ -94,6 +94,16 @@ Both of them are just reusable component. When you need something with more flex
 
 Every WP post is basically two type. Either a `page` or `post` type. You can also build your own `custom post` type. But _REMEMBER_ to go to wp-admin dashboard > settings > permalinks and `save changes`. This will let WP know about our custom dashboard and the right link will rendered.
 
+# CUSTOM URL
+
+we do not get custom url for API unless we define so. We do this inside the `mu_plugin`. Look at the muPlugin/`university_post_type`.
+Generally you want to create your custom URL when you are in the following situation.
+
+- Custom Serach Logic
+- Respond with less JSON data (Faster load)
+- send only 1 getJSON request instead of 6 in our js
+- perfect exercise for sharpening PHP skills.
+
 # WARNINGS ⚠️
 
 _NEVER_ update a theme of a live-website. That can delete the whole existing website.

@@ -1,5 +1,25 @@
 <?php
 
+//We created separate code for custom URL and require that here.
+require get_theme_file_path('/inc/serach-route.php');
+
+function university_custom_rest()
+{
+    //This is to add an additional field to the JSON api
+
+    //We did not have any authorName in our API, so we create one.
+
+    register_rest_field('post', 'authorName', [
+        'get_callback'=> function () {
+            return get_the_author();
+        }
+    ]);
+}
+
+
+
+add_action('rest_api_init', 'university_custom_rest');
+
 //Custom Reusable Component
 //args optional
 function pageBanner($args = null)
@@ -63,6 +83,7 @@ function pageBanner($args = null)
 }
 
 
+//additonal files like scripts, css, fonts, etc.
 
 function university_files()
 {
