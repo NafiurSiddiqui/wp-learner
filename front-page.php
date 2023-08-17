@@ -63,17 +63,11 @@ $homepageEvents = new WP_Query([
 while($homepageEvents->have_posts()) {
     $homepageEvents->the_post();
     get_template_part('/template-parts/content', 'event');
-
-
-}
-
-?>
+}?>
             <p class="t-center no-margin">
                 <a href="
-                <?php
-                echo get_post_type_archive_link('event');
-?>
-                " class="btn btn--blue">View All Events</a>
+                <?php echo get_post_type_archive_link('event'); ?>"
+                    class="btn btn--blue">View All Events</a>
             </p>
         </div>
     </div>
@@ -87,51 +81,35 @@ while($homepageEvents->have_posts()) {
         ]);
 
 while ($homepagePosts->have_posts()) {
-    $homepagePosts->the_post();
-    ?>
+    $homepagePosts->the_post();?>
             <div class="event-summary">
                 <a class="event-summary__date event-summary__date--beige t-center" href="
-                <?php
-                the_permalink();
-    ?>
-                ">
+        <?php the_permalink(); ?>">
                     <span class="event-summary__month">
-                        <?php
-            the_time('M');
-    ?>
+                        <?php the_time('M'); ?>
                     </span>
                     <span class="event-summary__day">
-                        <?php
-    the_time('d');
-    ?>
+                        <?php the_time('d');?>
                     </span>
                 </a>
                 <div class="event-summary__content">
                     <h5 class="event-summary__title headline headline--tiny">
                         <a href="
-                        <?php
-                            the_permalink();
-    ?>
-                        ">
-                            <?php
-        the_title();
-    ?>
+                <?php the_permalink();?>">
+                            <?php the_title(); ?>
                         </a>
                     </h5>
                     <p>
                         <?php
-                       if (has_excerpt()) {
-                           echo get_the_excerpt();
-                       } else {
-                           echo wp_trim_words(get_the_content(), 10);
-                       };
+                if (has_excerpt()) {
+                    echo get_the_excerpt();
+                } else {
+                    echo wp_trim_words(get_the_content(), 10);
+                };?>
 
-    ?>
                         <a href="
-                        <?php
-     the_permalink();
-    ?>
-                        " class="nu gray">Read more</a>
+                <?php the_permalink();?>
+                " class="nu gray">Read more</a>
                     </p>
                 </div>
             </div>
