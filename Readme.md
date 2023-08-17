@@ -5,7 +5,7 @@ Hoping you have done with the local setup and know your WP dashboard. Jump right
 
 # Folder structure and fileNaming convention
 
-In the root folder you wanna have an `index.php` and `style.css`. The name here is important and strictly these.
+In the root folder you wanna have an `index.php` and `style.css`. The name here is important and strict.
 
 - ## Index.php
 
@@ -45,7 +45,7 @@ Go to wp > dashboard > appearance > activate your custom theme.
 
 # APIs
 
-- Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.So, do use the `echo` or not accordingly.
+- Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.So, do use the `echo` accordingly.
 -
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
 - `is_category`: Returns true if the query is for an exisiting category archive page.
