@@ -75,10 +75,8 @@ while($homepageEvents->have_posts()) {
         <div class="full-width-split__inner">
             <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
             <!-- custom queries -->
-            <?php
-        $homepagePosts = new WP_Query([
-'posts_per_page'=> 2
-        ]);
+            <?php $homepagePosts = new WP_Query([
+                'posts_per_page'=> 2 ]);
 
 while ($homepagePosts->have_posts()) {
     $homepagePosts->the_post();?>
