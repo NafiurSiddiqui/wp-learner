@@ -7,11 +7,11 @@ Hoping you have done with the local setup and know your WP dashboard. Jump right
 
 In the root folder you wanna have an `index.php` and `style.css`. The name here is important and strict.
 
-- ## Index.php
+- ## Index.php ( MUST )
 
   Write something there. To start out.
 
-- ## style.css
+- ## style.css ( MUST )
 
   check out [style.css]('./style.css') for further details. If you have a builder like parcel, webpack, etc, you wanna register them through functions inside your [functions]('/functions.php'). Check out how we register the style with built-in wp functions.
 
@@ -21,12 +21,14 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
   Place your image in the root dir and name it `screenshot.png` strictly. Now you will see the theme picture inside the WP dashboard.
 
-- ## Single.php
+- ## Single.php ( Must )
 
   A must have file with this name in order to show a single post with new layouts. Shows posts.
 
 - ## Single-[custom type].php
-  This is required when you have a custom post type other than the two basics post type WP gives you.
+
+  This is required when you have a custom post type other than the two basics post type WP returns to you.
+
 - ## page.php
 
   Must have with same WP loops. This tracks pages for your website. Shows pages.
@@ -46,7 +48,15 @@ Go to wp > dashboard > appearance > activate your custom theme.
 # APIs
 
 - Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.So, do use the `echo` accordingly.
--
+
+- `have_posts`: Do something while have posts. Typcially used with a loop.
+- `the_post`- returns you all the data of post. Typically used inside a loop.
+- `the title` - returns you the title of the post.
+- `the_permalink`: Fetches the URL for your post.
+- `the_content`: fetches the full body of the post.
+- `the_excerpt`: fetches excerpt of the text.
+- `the_author_posts_link`: fetches the name of the author for the post.
+- `the_time`: fetches the date posted.
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
 - `is_category`: Returns true if the query is for an exisiting category archive page.
 - `is_author`: Returns the name of the author.
@@ -57,12 +67,8 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `get_footer`: gets the custom footer.
 - `have_posts`: Determines whether current WP query have posts to loop over. `bool`
 - `site_url`: Helps you with navigation around the site.
-- `single_cat_title`: Gives you the title of a single category.
-- `the_permalink`: Fetches the URL for your post.
-- `the_content`: fetches the full body of the post.
-- `the_excerpt`: fetches excerpt of the text.
-- `the_author_posts_link`: fetches the name of the author for the post.
-- `the_time`: fetches the date posted.
+- `single_cat_title`: returns you the title of a single category.
+
 - `paginate_links`: will paginate your posts. - **NOTE** that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
   - **NOTE** This will not work for Custom query.You need to pass in arguments in order for this to work. see at the bottom. `page-past-events.php` file.
 - `wp_list_pages`: spits out every pages on your site.
