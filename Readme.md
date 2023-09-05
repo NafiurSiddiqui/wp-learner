@@ -66,7 +66,7 @@ Go to wp > dashboard > appearance > activate your custom theme.
   <br>
 - `get_title` : gets the title of the page.
 - `get_the_category_list`: fetches the category for the post.
-- `get_theme_file_uri`: Retrieves the URL of a file in the theme.
+- `get_theme_file_uri`: Retrieves the URL of a file in the theme. e.g - _wp-content/something_.
 - `get_stylesheet_uri`: Retrieves the stylesheet from the root.
 - `get_header`: gets the custom header.
 - `get_footer`: gets the custom footer.
@@ -79,7 +79,18 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `site_url`: Helps you with navigation around the site.
 - `single_cat_title`: returns you the title of a single category.
   <br>
-- `wp_enqueue_scripts`: Way of telling WP to load our CSS, JS files.
+- `wp_enqueue_scripts`:_HOOK_ Way of telling WP to load our CSS, JS files.
+- `wp_enqueue_style($a: String , $uri: Function | string)`: Loads the stylesheet.
+  - `$a`: we can make up name for the stylesheet we wanna load.
+  - `$uri`:
+    - URI. `<path>` to the stylesheet or loads the root stylesheet if arg is omiited.
+    - `string`: The absolute URL. e.g - font-awesome URL that you typically load inside a head `<link>` tag.
+- `wp_enqueue_script($a: String , $uri: Function | string, $dependency[])`: Loads the stylesheet.
+  - `$a`: we can make up name for the stylesheet we wanna load.
+  - `$uri`:
+    - URI. `<path>` to the stylesheet or loads the root stylesheet if arg is omiited.
+    - `string`: The absolute URL. e.g - font-awesome URL that you typically load inside a head `<link>` tag.
+    - `dependency` - If your js has any number of dependencies otherwise `NULL`.
 - `wp_list_pages`: spits out every pages on your site.
 - `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
 - `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
@@ -88,9 +99,6 @@ Go to wp > dashboard > appearance > activate your custom theme.
   - This let WP load whatever that needs to be loaded ( Css, JS, etc).
   - Whatver you assign inside the `functions.php` will be loaded on this page.
     <br>
-- `wp_enqueue_style($a, $b)`: Loads the stylesheet.
-  - `$a`: we can make up name for the stylesheet we wanna load.
-  - `$b`: URI
 
 # Dynamicity of the theme
 
