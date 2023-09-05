@@ -3,7 +3,7 @@
 Don't let the name drive you away if you know basics of frontend like, html, css, js.
 Hoping you have done with the local setup and know your WP dashboard. Jump right in. Otherwise, Look up for a basic things like setup and WP dashboard nav online.
 
-# Folder structure and fileNaming convention
+# Architecture and fileNaming convention
 
 In the root folder you wanna have an `index.php` and `style.css`. The name here is important and strict.
 
@@ -13,17 +13,11 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
 - ## style.css ( MUST )
 
-  check out [style.css]('./style.css') for further details. If you have a builder like parcel, webpack, etc, you wanna register them through functions inside your [functions]('/functions.php'). Check out how we register the style with built-in wp functions.
-
-- At the top you wanna write the theme meta data inside the css comment.
-
-- ## Theme image
-
-  Place your image in the root dir and name it `screenshot.png` strictly. Now you will see the theme picture inside the WP dashboard.
+  - check out [style.css]('./style.css') for further details. This css comment enlist the necessary data at the beginning to become a workable theme. Check out how we register the style with built-in wp functions.
 
 - ## Single.php ( Must )
 
-  A must have file with this name in order to show a single post with new layouts. Shows posts.
+  A must have file with this name in order to show a single post with new layouts. Shows a post.
 
 - ## Single-[custom type].php
 
@@ -31,7 +25,7 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
 - ## page.php
 
-  Must have with same WP loops. This tracks pages for your website. Shows pages.
+  Must have with same WP loops. Shows you pages for your site.
 
 - ## header and footer.php
 
@@ -41,6 +35,10 @@ In the root folder you wanna have an `index.php` and `style.css`. The name here 
 
   To communicate with WP api.
 
+- ## Theme image
+
+  Place your image in the root dir and name it `screenshot.png` strictly. Now you will see the theme picture inside the WP dashboard.
+
 # Visit your theme
 
 Go to wp > dashboard > appearance > activate your custom theme.
@@ -48,8 +46,13 @@ Go to wp > dashboard > appearance > activate your custom theme.
 # APIs
 
 - Rule Of Thumb: Anything starts with `get_` means, it returns the result. Anything starts with `the` echos out the result for you.So, do use the `echo` accordingly.
+- `add_action($a, $b)`:
 
-- `have_posts`: Do something while have posts. Typcially used with a loop.
+  - `$a`: Instruction to run the code by using one of those _wp hooks_.
+    - e.g - `wp_enqueue_scripts`
+  - `$b`: Name of the Function that will be executed on hooked instruction.
+    <br>
+
 - `the_post`- returns you all the data of post. Typically used inside a loop.
 - `the title` - returns you the title of the post.
 - `the_permalink`: Fetches the URL for your post.
@@ -60,21 +63,34 @@ Go to wp > dashboard > appearance > activate your custom theme.
 - `is_page`: checks for current page slug (e.g - about us, privacy policy, etc).
 - `is_category`: Returns true if the query is for an exisiting category archive page.
 - `is_author`: Returns the name of the author.
+  <br>
 - `get_title` : gets the title of the page.
 - `get_the_category_list`: fetches the category for the post.
 - `get_theme_file_uri`: Retrieves the URL of a file in the theme.
+- `get_stylesheet_uri`: Retrieves the stylesheet from the root.
 - `get_header`: gets the custom header.
 - `get_footer`: gets the custom footer.
+  <br>
 - `have_posts`: Determines whether current WP query have posts to loop over. `bool`
-- `site_url`: Helps you with navigation around the site.
-- `single_cat_title`: returns you the title of a single category.
 
 - `paginate_links`: will paginate your posts. - **NOTE** that the pagination will not appear unless you have X amount of posts based on the WP dashboard > settings.
   - **NOTE** This will not work for Custom query.You need to pass in arguments in order for this to work. see at the bottom. `page-past-events.php` file.
+    <br>
+- `site_url`: Helps you with navigation around the site.
+- `single_cat_title`: returns you the title of a single category.
+  <br>
+- `wp_enqueue_scripts`: Way of telling WP to load our CSS, JS files.
 - `wp_list_pages`: spits out every pages on your site.
 - `wp_get_post_parent_id`: gets the id of the parent. Can be used to check for parent or child.
 - `wp_nav_menu`: registers dynamic menu in the site inside the theme placeholder.
 - `wp_reset_postdata`: Always run this after a custom query while loops.
+- `wp_head`:
+  - This let WP load whatever that needs to be loaded ( Css, JS, etc).
+  - Whatver you assign inside the `functions.php` will be loaded on this page.
+    <br>
+- `wp_enqueue_style($a, $b)`: Loads the stylesheet.
+  - `$a`: we can make up name for the stylesheet we wanna load.
+  - `$b`: URI
 
 # Dynamicity of the theme
 
